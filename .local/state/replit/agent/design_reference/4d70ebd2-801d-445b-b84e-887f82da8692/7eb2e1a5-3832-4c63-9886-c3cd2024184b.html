@@ -1,0 +1,967 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeAI Pro - AI-Powered Resume & Cover Letter Generator | Free ATS-Friendly Templates</title>
+    <meta name="description" content="Create professional, ATS-friendly resumes and cover letters in minutes with our AI-powered generator. Free templates, instant download, and expert formatting.">
+    <meta name="keywords" content="resume generator, cover letter generator, ATS resume, free resume builder, AI resume, job application">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="ResumeAI Pro - Free AI Resume & Cover Letter Generator">
+    <meta property="og:description" content="Create professional resumes and cover letters in minutes with AI assistance">
+    <meta property="og:type" content="website">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    borderRadius: {
+                        lg: "var(--radius)",
+                        md: "calc(var(--radius) - 2px)",
+                        sm: "calc(var(--radius) - 4px)",
+                    },
+                    colors: {
+                        background: "var(--background)",
+                        foreground: "var(--foreground)",
+                        card: {
+                            DEFAULT: "var(--card)",
+                            foreground: "var(--card-foreground)",
+                        },
+                        popover: {
+                            DEFAULT: "var(--popover)",
+                            foreground: "var(--popover-foreground)",
+                        },
+                        primary: {
+                            DEFAULT: "var(--primary)",
+                            foreground: "var(--primary-foreground)",
+                        },
+                        secondary: {
+                            DEFAULT: "var(--secondary)",
+                            foreground: "var(--secondary-foreground)",
+                        },
+                        muted: {
+                            DEFAULT: "var(--muted)",
+                            foreground: "var(--muted-foreground)",
+                        },
+                        accent: {
+                            DEFAULT: "var(--accent)",
+                            foreground: "var(--accent-foreground)",
+                        },
+                        destructive: {
+                            DEFAULT: "var(--destructive)",
+                            foreground: "var(--destructive-foreground)",
+                        },
+                        border: "var(--border)",
+                        input: "var(--input)",
+                        ring: "var(--ring)",
+                    },
+                    fontFamily: {
+                        sans: ["var(--font-sans)", "Inter", "system-ui", "sans-serif"],
+                    }
+                },
+            }
+        };
+    </script>
+    
+    <style>
+        :root {
+            --background: hsl(210 40% 98%);
+            --foreground: hsl(222.2 84% 4.9%);
+            --card: hsl(0 0% 100%);
+            --card-foreground: hsl(222.2 84% 4.9%);
+            --popover: hsl(0 0% 100%);
+            --popover-foreground: hsl(222.2 84% 4.9%);
+            --primary: hsl(221.2 83.2% 53.3%);
+            --primary-foreground: hsl(210 40% 98%);
+            --secondary: hsl(210 40% 96%);
+            --secondary-foreground: hsl(222.2 84% 4.9%);
+            --muted: hsl(210 40% 96%);
+            --muted-foreground: hsl(215.4 16.3% 46.9%);
+            --accent: hsl(210 40% 96%);
+            --accent-foreground: hsl(222.2 84% 4.9%);
+            --destructive: hsl(0 84.2% 60.2%);
+            --destructive-foreground: hsl(210 40% 98%);
+            --border: hsl(214.3 31.8% 91.4%);
+            --input: hsl(214.3 31.8% 91.4%);
+            --ring: hsl(221.2 83.2% 53.3%);
+            --radius: 0.5rem;
+            --font-sans: "Inter", system-ui, sans-serif;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(262.1 83.3% 57.8%) 100%);
+        }
+        
+        .loading-spinner {
+            border: 2px solid hsl(210 40% 96%);
+            border-top: 2px solid hsl(221.2 83.2% 53.3%);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .form-floating {
+            position: relative;
+        }
+        
+        .form-floating input:focus + label,
+        .form-floating input:not(:placeholder-shown) + label,
+        .form-floating textarea:focus + label,
+        .form-floating textarea:not(:placeholder-shown) + label {
+            transform: translateY(-1.5rem) scale(0.85);
+            color: hsl(221.2 83.2% 53.3%);
+        }
+        
+        .form-floating label {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            transition: all 0.2s ease-in-out;
+            pointer-events: none;
+            color: hsl(215.4 16.3% 46.9%);
+        }
+        
+        .ad-placeholder {
+            background: repeating-linear-gradient(
+                45deg,
+                hsl(210 40% 96%),
+                hsl(210 40% 96%) 10px,
+                hsl(214.3 31.8% 91.4%) 10px,
+                hsl(214.3 31.8% 91.4%) 20px
+            );
+            border: 2px dashed hsl(215.4 16.3% 46.9%);
+        }
+    </style>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-background text-foreground font-sans">
+    <!-- Header Navigation -->
+    <nav class="sticky top-0 z-50 bg-card/80 backdrop-blur-sm border-b border-border">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <i class="fas fa-file-alt text-primary-foreground text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold text-foreground">ResumeAI Pro</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-muted-foreground hover:text-foreground transition-colors">Features</a>
+                    <a href="#templates" class="text-muted-foreground hover:text-foreground transition-colors">Templates</a>
+                    <a href="#pricing" class="text-muted-foreground hover:text-foreground transition-colors">Pricing</a>
+                    <button class="bg-primary text-primary-foreground px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors">
+                        Get Started Free
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button class="md:hidden p-2">
+                    <i class="fas fa-bars text-foreground"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Create Professional Resumes with AI in
+                        <span class="text-yellow-300">Minutes</span>
+                    </h1>
+                    <p class="text-xl mb-8 text-blue-100">
+                        Generate ATS-friendly resumes and cover letters powered by artificial intelligence. 
+                        Land your dream job with professionally formatted documents.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToApp()" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                            <i class="fas fa-magic mr-2"></i>
+                            Start Creating Free
+                        </button>
+                        <button class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-colors">
+                            <i class="fas fa-play mr-2"></i>
+                            Watch Demo
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hidden lg:block">
+                    <!-- Professional resume preview mockup -->
+                    <div class="bg-white rounded-xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform">
+                        <div class="space-y-4">
+                            <div class="h-4 bg-gray-300 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-200 rounded w-1/2"></div>
+                            <div class="space-y-2">
+                                <div class="h-2 bg-gray-200 rounded"></div>
+                                <div class="h-2 bg-gray-200 rounded w-4/5"></div>
+                                <div class="h-2 bg-gray-200 rounded w-3/4"></div>
+                            </div>
+                            <div class="pt-4">
+                                <div class="h-3 bg-primary rounded w-1/3 mb-2"></div>
+                                <div class="space-y-1">
+                                    <div class="h-2 bg-gray-200 rounded w-full"></div>
+                                    <div class="h-2 bg-gray-200 rounded w-5/6"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad Placeholder - Header Banner -->
+    <div class="ad-placeholder mx-auto max-w-7xl my-8 h-24 flex items-center justify-center text-muted-foreground">
+        <i class="fas fa-ad mr-2"></i>
+        Advertisement Banner (728x90)
+    </div>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 bg-secondary/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose ResumeAI Pro?</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Our AI-powered platform helps you create professional resumes and cover letters 
+                    that get noticed by employers and pass ATS screening.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-robot text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">AI-Powered Generation</h3>
+                    <p class="text-muted-foreground">
+                        Our advanced AI analyzes job descriptions and creates tailored content 
+                        that highlights your most relevant skills and experiences.
+                    </p>
+                </div>
+                
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-check-circle text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">ATS-Friendly Format</h3>
+                    <p class="text-muted-foreground">
+                        All templates are optimized for Applicant Tracking Systems, 
+                        ensuring your resume gets past automated screening.
+                    </p>
+                </div>
+                
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-download text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Instant Download</h3>
+                    <p class="text-muted-foreground">
+                        Download your polished resume and cover letter in multiple formats 
+                        including PDF, Word, and plain text.
+                    </p>
+                </div>
+                
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-purple-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Professional Templates</h3>
+                    <p class="text-muted-foreground">
+                        Choose from dozens of professionally designed templates 
+                        suitable for any industry and career level.
+                    </p>
+                </div>
+                
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-eye text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Real-Time Preview</h3>
+                    <p class="text-muted-foreground">
+                        See your resume come to life in real-time as you input your information 
+                        with our live preview feature.
+                    </p>
+                </div>
+                
+                <div class="bg-card p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                    <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-red-600 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Data Privacy</h3>
+                    <p class="text-muted-foreground">
+                        Your personal information is secure and private. 
+                        We never share your data and offer local storage options.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Application Interface -->
+    <section id="app" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Create Your Resume Now</h2>
+                <p class="text-xl text-muted-foreground">
+                    Fill in your details and let our AI create a professional resume for you
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Sidebar Ad Placement -->
+                <div class="lg:col-span-2 order-last lg:order-first">
+                    <div class="ad-placeholder h-[600px] w-full flex flex-col items-center justify-center text-muted-foreground sticky top-24">
+                        <i class="fas fa-ad text-2xl mb-2"></i>
+                        <span class="text-sm text-center">Sidebar Ad<br>(160x600)</span>
+                    </div>
+                </div>
+                
+                <!-- Input Form -->
+                <div class="lg:col-span-5">
+                    <div class="bg-card rounded-xl shadow-sm border border-border p-6">
+                        <h3 class="text-xl font-semibold mb-6">Personal Information</h3>
+                        
+                        <form id="resumeForm" class="space-y-6">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-floating">
+                                    <input type="text" id="firstName" placeholder=" " 
+                                           class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                                    <label for="firstName">First Name</label>
+                                </div>
+                                <div class="form-floating">
+                                    <input type="text" id="lastName" placeholder=" " 
+                                           class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                                    <label for="lastName">Last Name</label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="email" id="email" placeholder=" " 
+                                       class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                                <label for="email">Email Address</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="tel" id="phone" placeholder=" " 
+                                       class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                                <label for="phone">Phone Number</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <input type="text" id="jobTitle" placeholder=" " 
+                                       class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background">
+                                <label for="jobTitle">Desired Job Title</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <textarea id="experience" rows="4" placeholder=" " 
+                                          class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"></textarea>
+                                <label for="experience">Work Experience (List your recent positions and achievements)</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <textarea id="skills" rows="3" placeholder=" " 
+                                          class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"></textarea>
+                                <label for="skills">Key Skills (Separate with commas)</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <textarea id="education" rows="3" placeholder=" " 
+                                          class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"></textarea>
+                                <label for="education">Education Background</label>
+                            </div>
+                            
+                            <div class="form-floating">
+                                <textarea id="jobDescription" rows="4" placeholder=" " 
+                                          class="w-full px-3 py-3 border border-input rounded-lg focus:outline-none focus:ring-2 focus:ring-ring bg-background resize-none"></textarea>
+                                <label for="jobDescription">Target Job Description (Paste job posting for AI optimization)</label>
+                            </div>
+                            
+                            <div class="space-y-4">
+                                <h4 class="font-semibold">Resume Template</h4>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <label class="flex items-center space-x-3 p-3 border border-input rounded-lg cursor-pointer hover:bg-accent transition-colors">
+                                        <input type="radio" name="template" value="modern" checked class="text-primary">
+                                        <span>Modern</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 border border-input rounded-lg cursor-pointer hover:bg-accent transition-colors">
+                                        <input type="radio" name="template" value="professional" class="text-primary">
+                                        <span>Professional</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 border border-input rounded-lg cursor-pointer hover:bg-accent transition-colors">
+                                        <input type="radio" name="template" value="creative" class="text-primary">
+                                        <span>Creative</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 p-3 border border-input rounded-lg cursor-pointer hover:bg-accent transition-colors">
+                                        <input type="radio" name="template" value="minimal" class="text-primary">
+                                        <span>Minimal</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="flex space-x-4">
+                                <button type="button" onclick="generateResume()" 
+                                        class="flex-1 bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+                                    <i class="fas fa-magic mr-2"></i>
+                                    Generate Resume
+                                </button>
+                                <button type="button" onclick="generateCoverLetter()" 
+                                        class="flex-1 bg-secondary text-secondary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-secondary/80 transition-colors">
+                                    <i class="fas fa-file-alt mr-2"></i>
+                                    Generate Cover Letter
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Preview Panel -->
+                <div class="lg:col-span-5">
+                    <div class="bg-card rounded-xl shadow-sm border border-border">
+                        <div class="p-6 border-b border-border">
+                            <div class="flex items-center justify-between">
+                                <h3 class="text-xl font-semibold">Live Preview</h3>
+                                <div class="flex space-x-2">
+                                    <button onclick="copyToClipboard()" 
+                                            class="px-4 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors">
+                                        <i class="fas fa-copy mr-2"></i>Copy
+                                    </button>
+                                    <button onclick="downloadResume()" 
+                                            class="px-4 py-2 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors">
+                                        <i class="fas fa-download mr-2"></i>Download
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="p-6">
+                            <div id="loadingState" class="hidden text-center py-12">
+                                <div class="loading-spinner mx-auto mb-4"></div>
+                                <p class="text-muted-foreground">AI is generating your resume...</p>
+                            </div>
+                            
+                            <div id="resumePreview" class="prose max-w-none">
+                                <div class="text-center text-muted-foreground py-12">
+                                    <i class="fas fa-file-alt text-4xl mb-4 opacity-50"></i>
+                                    <p>Your AI-generated resume will appear here</p>
+                                    <p class="text-sm">Fill out the form and click "Generate Resume" to get started</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ad Placeholder - Between Content -->
+                    <div class="ad-placeholder mt-6 h-24 flex items-center justify-center text-muted-foreground">
+                        <i class="fas fa-ad mr-2"></i>
+                        Content Ad (728x90)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cover Letter Section -->
+    <section class="py-20 bg-secondary/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">AI Cover Letter Generator</h2>
+                <p class="text-xl text-muted-foreground">
+                    Create compelling cover letters that complement your resume
+                </p>
+            </div>
+            
+            <div class="bg-card rounded-xl shadow-sm border border-border p-8">
+                <div id="coverLetterPreview" class="min-h-[400px]">
+                    <div class="text-center text-muted-foreground py-12">
+                        <i class="fas fa-envelope text-4xl mb-4 opacity-50"></i>
+                        <p>Your AI-generated cover letter will appear here</p>
+                        <p class="text-sm">Click "Generate Cover Letter" to create a personalized cover letter</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center space-x-4 mt-6">
+                    <button onclick="copyToClipboard('coverLetter')" 
+                            class="px-6 py-3 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/80 transition-colors">
+                        <i class="fas fa-copy mr-2"></i>Copy Cover Letter
+                    </button>
+                    <button onclick="downloadCoverLetter()" 
+                            class="px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/80 transition-colors">
+                        <i class="fas fa-download mr-2"></i>Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section id="templates" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Professional Resume Templates</h2>
+                <p class="text-xl text-muted-foreground max-w-3xl mx-auto">
+                    Choose from our collection of ATS-friendly templates designed by career experts
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-blue-50 to-blue-100 p-6 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-full h-4 bg-blue-300 rounded mb-2"></div>
+                            <div class="w-2/3 h-2 bg-blue-200 rounded mb-4 mx-auto"></div>
+                            <div class="space-y-1">
+                                <div class="w-full h-1 bg-gray-300 rounded"></div>
+                                <div class="w-4/5 h-1 bg-gray-300 rounded"></div>
+                                <div class="w-3/4 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">Modern Professional</h3>
+                        <p class="text-sm text-muted-foreground">Clean and contemporary design perfect for tech and creative roles</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-gray-50 to-gray-100 p-6 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-full h-4 bg-gray-400 rounded mb-2"></div>
+                            <div class="w-2/3 h-2 bg-gray-300 rounded mb-4 mx-auto"></div>
+                            <div class="space-y-1">
+                                <div class="w-full h-1 bg-gray-300 rounded"></div>
+                                <div class="w-4/5 h-1 bg-gray-300 rounded"></div>
+                                <div class="w-3/4 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">Classic Executive</h3>
+                        <p class="text-sm text-muted-foreground">Traditional layout ideal for corporate and executive positions</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-purple-50 to-purple-100 p-6 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-full h-4 bg-purple-300 rounded mb-2"></div>
+                            <div class="w-2/3 h-2 bg-purple-200 rounded mb-4 mx-auto"></div>
+                            <div class="space-y-1">
+                                <div class="w-full h-1 bg-gray-300 rounded"></div>
+                                <div class="w-4/5 h-1 bg-gray-300 rounded"></div>
+                                <div class="w-3/4 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">Creative Designer</h3>
+                        <p class="text-sm text-muted-foreground">Stylish template for creative professionals and designers</p>
+                    </div>
+                </div>
+                
+                <div class="bg-card rounded-xl shadow-sm border border-border overflow-hidden hover:shadow-md transition-shadow">
+                    <div class="aspect-[3/4] bg-gradient-to-br from-green-50 to-green-100 p-6 flex items-center justify-center">
+                        <div class="text-center">
+                            <div class="w-full h-4 bg-green-300 rounded mb-2"></div>
+                            <div class="w-2/3 h-2 bg-green-200 rounded mb-4 mx-auto"></div>
+                            <div class="space-y-1">
+                                <div class="w-full h-1 bg-gray-300 rounded"></div>
+                                <div class="w-4/5 h-1 bg-gray-300 rounded"></div>
+                                <div class="w-3/4 h-1 bg-gray-300 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold mb-2">Minimalist</h3>
+                        <p class="text-sm text-muted-foreground">Clean and simple design that highlights your content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing/CTA Section -->
+    <section id="pricing" class="py-20 gradient-bg text-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Start Creating Your Perfect Resume Today</h2>
+            <p class="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
+                Join thousands of job seekers who have successfully landed interviews with our AI-powered resume generator.
+            </p>
+            
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-3xl font-bold mb-2">10,000+</div>
+                        <div class="text-blue-100">Resumes Generated</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-2">85%</div>
+                        <div class="text-blue-100">Interview Success Rate</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold mb-2">4.9★</div>
+                        <div class="text-blue-100">User Rating</div>
+                    </div>
+                </div>
+            </div>
+            
+            <button onclick="scrollToApp()" class="bg-white text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                <i class="fas fa-rocket mr-2"></i>
+                Create My Resume Now - It's Free!
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-card border-t border-border py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <i class="fas fa-file-alt text-primary-foreground text-sm"></i>
+                        </div>
+                        <span class="text-xl font-bold">ResumeAI Pro</span>
+                    </div>
+                    <p class="text-muted-foreground mb-4 max-w-md">
+                        The most advanced AI-powered resume and cover letter generator. 
+                        Create professional, ATS-friendly documents in minutes.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-muted-foreground hover:text-foreground transition-colors">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Resume Builder</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Cover Letter Generator</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Templates</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Career Tips</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-muted-foreground">
+                        <li><a href="#" class="hover:text-foreground transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-foreground transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-border mt-12 pt-8 text-center text-muted-foreground">
+                <p>&copy; 2024 ResumeAI Pro. All rights reserved. Built with AI for job seekers worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Local storage for user data persistence
+        const STORAGE_KEY = 'resumeai_user_data';
+        
+        // Save form data to localStorage
+        function saveFormData() {
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                jobTitle: document.getElementById('jobTitle').value,
+                experience: document.getElementById('experience').value,
+                skills: document.getElementById('skills').value,
+                education: document.getElementById('education').value,
+                jobDescription: document.getElementById('jobDescription').value,
+                template: document.querySelector('input[name="template"]:checked')?.value || 'modern'
+            };
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+        }
+        
+        // Load form data from localStorage
+        function loadFormData() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const formData = JSON.parse(saved);
+                Object.keys(formData).forEach(key => {
+                    const element = document.getElementById(key);
+                    if (element) {
+                        element.value = formData[key];
+                    } else if (key === 'template') {
+                        const templateRadio = document.querySelector(`input[name="template"][value="${formData[key]}"]`);
+                        if (templateRadio) templateRadio.checked = true;
+                    }
+                });
+            }
+        }
+        
+        // Auto-save form data as user types
+        function setupAutoSave() {
+            const formElements = document.querySelectorAll('#resumeForm input, #resumeForm textarea');
+            formElements.forEach(element => {
+                element.addEventListener('input', saveFormData);
+                element.addEventListener('change', saveFormData);
+            });
+        }
+        
+        // Simulate AI resume generation
+        function generateResume() {
+            const loadingState = document.getElementById('loadingState');
+            const previewDiv = document.getElementById('resumePreview');
+            
+            // Show loading state
+            loadingState.classList.remove('hidden');
+            previewDiv.classList.add('hidden');
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                jobTitle: document.getElementById('jobTitle').value,
+                experience: document.getElementById('experience').value,
+                skills: document.getElementById('skills').value,
+                education: document.getElementById('education').value,
+                jobDescription: document.getElementById('jobDescription').value,
+                template: document.querySelector('input[name="template"]:checked')?.value || 'modern'
+            };
+            
+            // Validate required fields
+            if (!formData.firstName || !formData.lastName || !formData.email) {
+                alert('Please fill in at least your name and email address.');
+                loadingState.classList.add('hidden');
+                previewDiv.classList.remove('hidden');
+                return;
+            }
+            
+            // Save form data
+            saveFormData();
+            
+            // Simulate AI processing delay
+            setTimeout(() => {
+                const resumeHTML = generateResumeHTML(formData);
+                previewDiv.innerHTML = resumeHTML;
+                
+                loadingState.classList.add('hidden');
+                previewDiv.classList.remove('hidden');
+                
+                // TODO: Implement real AI integration with OpenAI API
+                // This would involve sending form data to AI service and receiving optimized content
+            }, 2000);
+        }
+        
+        // Generate HTML for resume based on template and form data
+        function generateResumeHTML(data) {
+            const skills = data.skills.split(',').map(skill => skill.trim()).filter(skill => skill);
+            
+            return `
+                <div class="resume-content bg-white p-8 shadow-sm" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.5;">
+                    <header class="text-center mb-8 pb-6 border-b-2 border-gray-200">
+                        <h1 class="text-3xl font-bold text-gray-900 mb-2">${data.firstName} ${data.lastName}</h1>
+                        <h2 class="text-xl text-blue-600 mb-4">${data.jobTitle || 'Professional'}</h2>
+                        <div class="text-gray-600">
+                            <p>${data.email} • ${data.phone}</p>
+                        </div>
+                    </header>
+                    
+                    ${data.experience ? `
+                    <section class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">Professional Experience</h3>
+                        <div class="text-gray-700 whitespace-pre-line">${data.experience}</div>
+                    </section>
+                    ` : ''}
+                    
+                    ${skills.length > 0 ? `
+                    <section class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">Key Skills</h3>
+                        <div class="flex flex-wrap gap-2">
+                            ${skills.map(skill => `<span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">${skill}</span>`).join('')}
+                        </div>
+                    </section>
+                    ` : ''}
+                    
+                    ${data.education ? `
+                    <section class="mb-8">
+                        <h3 class="text-lg font-bold text-gray-900 mb-4 border-b border-gray-300 pb-2">Education</h3>
+                        <div class="text-gray-700 whitespace-pre-line">${data.education}</div>
+                    </section>
+                    ` : ''}
+                </div>
+            `;
+        }
+        
+        // Generate cover letter
+        function generateCoverLetter() {
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                jobTitle: document.getElementById('jobTitle').value,
+                experience: document.getElementById('experience').value,
+                jobDescription: document.getElementById('jobDescription').value
+            };
+            
+            if (!formData.firstName || !formData.lastName) {
+                alert('Please fill in your name first.');
+                return;
+            }
+            
+            const coverLetterDiv = document.getElementById('coverLetterPreview');
+            
+            // Simulate AI processing
+            const coverLetterHTML = `
+                <div class="cover-letter bg-white p-8" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6;">
+                    <div class="mb-6">
+                        <p class="text-gray-600">${new Date().toLocaleDateString()}</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-800">Dear Hiring Manager,</p>
+                    </div>
+                    
+                    <div class="text-gray-700 space-y-4">
+                        <p>I am writing to express my strong interest in the ${formData.jobTitle || 'position'} role at your company. With my background and experience, I believe I would be a valuable addition to your team.</p>
+                        
+                        ${formData.experience ? `<p>My experience includes: ${formData.experience.substring(0, 200)}...</p>` : ''}
+                        
+                        <p>I am excited about the opportunity to contribute to your organization and would welcome the chance to discuss how my skills and enthusiasm can benefit your team.</p>
+                        
+                        <p>Thank you for your consideration. I look forward to hearing from you.</p>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <p class="text-gray-800">Sincerely,<br>${formData.firstName} ${formData.lastName}</p>
+                    </div>
+                </div>
+            `;
+            
+            coverLetterDiv.innerHTML = coverLetterHTML;
+            
+            // TODO: Implement real AI integration for personalized cover letter generation
+        }
+        
+        // Copy content to clipboard
+        function copyToClipboard(type = 'resume') {
+            const elementId = type === 'coverLetter' ? 'coverLetterPreview' : 'resumePreview';
+            const element = document.getElementById(elementId);
+            
+            if (!element || !element.textContent.trim()) {
+                alert('Please generate content first.');
+                return;
+            }
+            
+            const textContent = element.textContent;
+            navigator.clipboard.writeText(textContent).then(() => {
+                alert('Content copied to clipboard!');
+            }).catch(() => {
+                // Fallback for older browsers
+                const textArea = document.createElement('textarea');
+                textArea.value = textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                alert('Content copied to clipboard!');
+            });
+        }
+        
+        // Download resume as text file
+        function downloadResume() {
+            const previewDiv = document.getElementById('resumePreview');
+            if (!previewDiv || !previewDiv.textContent.trim()) {
+                alert('Please generate a resume first.');
+                return;
+            }
+            
+            const content = previewDiv.textContent;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-resume.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // TODO: Implement PDF generation for production
+        }
+        
+        // Download cover letter
+        function downloadCoverLetter() {
+            const coverLetterDiv = document.getElementById('coverLetterPreview');
+            if (!coverLetterDiv || !coverLetterDiv.textContent.trim()) {
+                alert('Please generate a cover letter first.');
+                return;
+            }
+            
+            const content = coverLetterDiv.textContent;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-cover-letter.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        
+        // Smooth scroll to app section
+        function scrollToApp() {
+            document.getElementById('app').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', function() {
+            loadFormData();
+            setupAutoSave();
+            
+            // Add form validation
+            const form = document.getElementById('resumeForm');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                generateResume();
+            });
+        });
+        
+        // Simple analytics tracking (placeholder)
+        function trackEvent(eventName, eventData) {
+            // TODO: Implement Google Analytics or other tracking
+            console.log('Event:', eventName, eventData);
+        }
+        
+        // Track user interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                trackEvent('button_click', { button: e.target.textContent });
+            }
+        });
+    </script>
+</body>
+</html>

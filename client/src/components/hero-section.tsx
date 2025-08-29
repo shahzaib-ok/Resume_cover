@@ -31,7 +31,7 @@ export function HeroSection() {
                 <i className="fas fa-magic mr-2" />
                 Start Creating Free
               </Button>
-              <Button 
+              {/* <Button 
                 variant="outline"
                 size="lg"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary"
@@ -39,7 +39,7 @@ export function HeroSection() {
               >
                 <i className="fas fa-play mr-2" />
                 Watch Demo
-              </Button>
+              </Button> */}
             </div>
           </div>
           
