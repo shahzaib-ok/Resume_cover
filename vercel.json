@@ -1,7 +1,7 @@
 
 {
   "buildCommand": "vite build",
-  "outputDirectory": "dist",
+  "outputDirectory": "dist/public",
   "devCommand": "vite --port $PORT",
   "installCommand": "npm install",
   "functions": {
