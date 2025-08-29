@@ -1,11 +1,11 @@
-{ 
+
+{
   "buildCommand": "vite build",
   "outputDirectory": "dist",
   "devCommand": "vite --port $PORT",
   "installCommand": "npm install",
   "functions": {
     "api/*.ts": {
-      "runtime": "nodejs20.x"
     }
   },
   "rewrites": [
