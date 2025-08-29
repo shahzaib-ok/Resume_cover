@@ -1,9 +1,10 @@
-{
-  "buildCommand": "cd client && npm install && npm run build",
-  "outputDirectory": "client/dist",
+{ 
+  "buildCommand": "vite build",
+  "outputDirectory": "dist",
+  "devCommand": "vite --port $PORT",
   "installCommand": "npm install",
   "functions": {
-    "api/*.js": {
+    "api/*.ts": {
       "runtime": "nodejs20.x"
     }
   },
@@ -14,7 +15,7 @@
     },
     {
       "source": "/(.*)",
-      "destination": "/client/dist/index.html"
+      "destination": "/index.html"
     }
   ]
 }
