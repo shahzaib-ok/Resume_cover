@@ -1,4 +1,13 @@
+
 export function Footer() {
+   const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+  };
+
   return (
     <footer className="bg-card border-t border-border py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,8 +30,8 @@ export function Footer() {
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="social-linkedin">
                 <i className="fab fa-linkedin text-xl" />
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="social-facebook">
-                <i className="fab fa-facebook text-xl" />
+              <a href="https://github.com/shahzaib-ok" className="text-muted-foreground hover:text-foreground transition-colors" data-testid="social-github">
+                <i className="fab fa-github text-xl" />
               </a>
             </div>
           </div>
@@ -30,9 +39,9 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Product</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Resume Builder</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Cover Letter Generator</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Templates</a></li>
+              <li><a onClick={() => scrollToSection('features')} className="hover:text-foreground transition-colors">Resume Builder</a></li>
+              <li><a onClick={() => scrollToSection('cover-letter-generator')} className="hover:text-foreground transition-colors">Cover Letter Generator</a></li>
+              <li><a onClick={() => scrollToSection('templates')} className="hover:text-foreground transition-colors">Templates</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors">Career Tips</a></li>
             </ul>
           </div>

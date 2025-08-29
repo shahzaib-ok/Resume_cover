@@ -83,7 +83,7 @@ export function CoverLetterGenerator() {
   };
 
   return (
-    <section className="py-20 bg-secondary/30">
+    <section id="cover-letter-generator" className="py-20 bg-secondary/30">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">AI Cover Letter Generator</h2>

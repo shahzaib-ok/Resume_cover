@@ -21,9 +21,9 @@ export default function Home() {
       <HeroSection />
       
       {/* Ad Placeholder - Header Banner */}
-      <div className="mx-auto max-w-7xl my-8 px-4">
+      {/* <div className="mx-auto max-w-7xl my-8 px-4">
         <AdPlaceholder size="banner" />
-      </div>
+      </div> */}
       
       <FeaturesSection />
       
@@ -31,20 +31,20 @@ export default function Home() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Sidebar Ad Placement */}
-          <div className="lg:col-span-2 order-last lg:order-first">
+          {/* <div className="lg:col-span-2 order-last lg:order-first">
             <div className="sticky top-24">
               <AdPlaceholder size="sidebar" />
             </div>
-          </div>
+          </div> */}
           
           {/* Main Content */}
           <div className="lg:col-span-10">
             <ResumeGenerator />
             
             {/* Ad Placeholder - Between Content */}
-            <div className="my-8">
+            {/* <div className="my-8">
               <AdPlaceholder size="content" />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
