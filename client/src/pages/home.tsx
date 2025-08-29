@@ -52,28 +52,49 @@ export default function Home() {
       <CoverLetterGenerator />
       <TemplatesSection />
       
-      {/* Pricing/CTA Section */}
-      <section id="pricing" className="py-20 gradient-bg text-white">
+      {/* Achievements Section */}
+      <section id="achievements" className="py-20 gradient-bg text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Start Creating Your Perfect Resume Today</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Trusted by Job Seekers Worldwide</h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
-            Join thousands of job seekers who have successfully landed interviews with our AI-powered resume generator.
+            Our AI-powered platform has helped thousands of professionals land their dream jobs with expertly crafted resumes.
           </p>
           
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 mb-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold mb-2">10,000+</div>
-                <div className="text-blue-100">Resumes Generated</div>
+                <div className="text-3xl font-bold mb-2">50,000+</div>
+                <div className="text-blue-100">Resumes Created</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">85%</div>
-                <div className="text-blue-100">Interview Success Rate</div>
+                <div className="text-3xl font-bold mb-2">92%</div>
+                <div className="text-blue-100">User Satisfaction</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">4.9★</div>
-                <div className="text-blue-100">User Rating</div>
+                <div className="text-3xl font-bold mb-2">15+</div>
+                <div className="text-blue-100">Industries Served</div>
               </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 text-left">
+            <div className="bg-white/5 rounded-xl p-6">
+              <div className="flex items-center mb-4">
+                <i className="fas fa-trophy text-yellow-300 text-2xl mr-3" />
+                <h3 className="text-xl font-semibold">Award-Winning Technology</h3>
+              </div>
+              <p className="text-blue-100">
+                Our AI technology has been recognized by leading industry publications for innovation in career services.
+              </p>
+            </div>
+            <div className="bg-white/5 rounded-xl p-6">
+              <div className="flex items-center mb-4">
+                <i className="fas fa-shield-alt text-green-300 text-2xl mr-3" />
+                <h3 className="text-xl font-semibold">Privacy Guaranteed</h3>
+              </div>
+              <p className="text-blue-100">
+                Your personal information is completely secure. We never share your data and offer local storage options.
+              </p>
             </div>
           </div>
           

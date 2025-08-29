@@ -39,11 +39,11 @@ export function Navbar() {
               Templates
             </button>
             <button 
-              onClick={() => scrollToSection('pricing')} 
+              onClick={() => scrollToSection('achievements')} 
               className="text-muted-foreground hover:text-foreground transition-colors"
-              data-testid="nav-pricing"
+              data-testid="nav-achievements"
             >
-              Pricing
+              Achievements
             </button>
             <Button 
               onClick={() => scrollToSection('app')}
@@ -78,10 +78,10 @@ export function Navbar() {
                 Templates
               </button>
               <button 
-                onClick={() => scrollToSection('pricing')} 
+                onClick={() => scrollToSection('achievements')} 
                 className="text-left text-muted-foreground hover:text-foreground transition-colors"
               >
-                Pricing
+                Achievements
               </button>
               <Button 
                 onClick={() => scrollToSection('app')}

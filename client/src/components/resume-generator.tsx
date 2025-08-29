@@ -113,10 +113,11 @@ export function ResumeGenerator() {
               <CardContent>
                 <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="form-floating">
+                    <div>
                       <Label htmlFor="firstName">First Name</Label>
                       <Input
                         id="firstName"
+                        placeholder="Enter your first name"
                         {...form.register("firstName")}
                         data-testid="input-firstName"
                       />
@@ -126,10 +127,11 @@ export function ResumeGenerator() {
                         </p>
                       )}
                     </div>
-                    <div className="form-floating">
+                    <div>
                       <Label htmlFor="lastName">Last Name</Label>
                       <Input
                         id="lastName"
+                        placeholder="Enter your last name"
                         {...form.register("lastName")}
                         data-testid="input-lastName"
                       />
