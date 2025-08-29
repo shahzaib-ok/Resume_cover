@@ -1,0 +1,52 @@
+
+I want you to build me a complete web app that solves a real, trending problem people are actively searching for online. The app should:
+
+1. **App Idea (choose and build one of these – whichever you can best implement):**
+
+   * **AI Resume & Cover Letter Generator** → People are constantly searching for free tools to generate ATS-friendly resumes and cover letters.
+   * **Free PDF Tools (Merge, Split, Compress, Convert to Word/Excel/Images)** → Very high search demand, evergreen, and easy to monetize.
+   * **AI-Powered YouTube Title & Thumbnail Idea Generator** → Content creators search for free tools to improve their video performance.
+   * **Language Practice Chatbot (with daily challenges)** → Students and learners search for free practice apps.
+
+   Pick one of these (or combine if simple enough) and create the full SaaS-like website.
+
+2. **Tech Stack Requirements:**
+
+   * Build using **HTML, CSS, JavaScript (React preferred)** so it can be deployed anywhere and embedded in **Google Sites**.
+   * Must be **responsive** and optimized for both desktop and mobile.
+   * Add clean UI with TailwindCSS (if possible).
+
+3. **Features to Include:**
+
+   * A simple **login/signup system** (optional: just local storage or Firebase if easier).
+   * A free tier of the tool (no payments needed right now).
+   * Export/Download/Copy functionality for generated content (e.g., download PDF, copy resume text, copy video titles, etc.).
+   * SEO-friendly structure so that it ranks on Google.
+
+4. **Monetization (Google AdSense Ready):**
+
+   * Add a clear **sidebar or banner ad placement** area where Google Ads can later be inserted.
+   * Place 2–3 ad placeholders on pages in **non-intrusive** spots (e.g., sidebar, header, or between content).
+
+5. **Deployment:**
+
+   * Provide the **full code** with clear instructions.
+   * The final output should be embeddable in **Google Sites** via `<iframe>` or direct upload.
+
+6. **UI/UX Guidelines:**
+
+   * Use a **modern, minimal, SaaS-style design**.
+   * Add a **landing page** with a hero section that explains the tool in 1–2 sentences.
+   * Add a **features section** and a **call-to-action** button to use the tool.
+
+7. **Extra Details:**
+
+   * Ensure the code is modular and easy to expand.
+   * No backend server required unless absolutely necessary (prefer client-side).
+   * If backend is needed, use free-tier Firebase or Node.js.
+
+**Final Deliverable:**
+A complete website app (resume builder, PDF tool, AI YouTube helper, or language practice chatbot) that is ready to embed into Google Sites, structured for SEO, and has Google AdSense-ready ad placements.
+
+---
+
