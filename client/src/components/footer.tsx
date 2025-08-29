@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 
 export function Footer() {
    const scrollToSection = (id: string) => {
@@ -49,10 +50,10 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4">Support</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors">Terms of Service</a></li>
+              <li><Link href="/About" className="hover:text-foreground transition-colors">About</Link></li>
+              <li><Link href="/contact" className="hover:text-foreground transition-colors">Contact Us</Link></li>
+              <li><Link href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/termsofservices" className="hover:text-foreground transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 
-export function Navbar() {
+ export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
@@ -24,6 +25,13 @@ export function Navbar() {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
+            <Link 
+              href="/about"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              
+            >
+              About Us
+            </Link>
             <button 
               onClick={() => scrollToSection('features')} 
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -45,6 +53,13 @@ export function Navbar() {
             >
               Achievements
             </button>
+             <Link 
+              href="/contact"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              
+            >
+              Contact Us
+            </Link>
             <Button 
               onClick={() => scrollToSection('app')}
               data-testid="nav-get-started"
@@ -65,6 +80,13 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border" data-testid="mobile-menu">
             <div className="flex flex-col space-y-4">
+              <Link 
+              href="/about"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              
+            >
+              About Us
+            </Link>
               <button 
                 onClick={() => scrollToSection('features')} 
                 className="text-left text-muted-foreground hover:text-foreground transition-colors"
