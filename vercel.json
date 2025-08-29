@@ -1,11 +1,10 @@
 {
   "version": 2,
-  "functions": {
-    "api/index.ts": {
-      "runtime": "@vercel/node@3"
-    }
-  },
   "builds": [
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
+    },
     {
       "src": "package.json",
       "use": "@vercel/static-build",
@@ -23,6 +22,5 @@
       "src": "/(.*)",
       "dest": "/dist/$1"
     }
-  ],
-  "buildCommand": "npm run build"
+  ]
 }
