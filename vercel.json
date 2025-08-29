@@ -5,8 +5,10 @@
   "devCommand": "vite --port $PORT",
   "installCommand": "npm install",
   "functions": {
-    "api/*.ts": {
-    }
+  "api/*.ts": {
+    "memory": 1024,
+    "maxDuration": 30
+  }
   },
   "rewrites": [
     {
